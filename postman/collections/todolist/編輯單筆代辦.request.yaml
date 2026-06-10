@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:3005/todos
+method: GET
+auth:
+  type: noauth
+order: 5000

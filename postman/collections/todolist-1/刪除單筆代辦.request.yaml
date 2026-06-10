@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:3005/todos
+method: DELETE
+order: 5000

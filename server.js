@@ -28,7 +28,7 @@ const requestListener = (req, res) => {
     req.on("end", () => {
       try {
         const title = JSON.parse(body).title;
-        if (title !== undefined) {
+        if (typeof title === "string" && title.trim() !== "") {
           const todo = {
             title: title,
             id: uuidv4(),
@@ -47,7 +47,7 @@ const requestListener = (req, res) => {
           res.end();
         }
       } catch (error) {
-        errorHandle();
+        errorHandle(res);
       }
     });
   } else if (req.url == "/todos" && req.method == "DELETE") {
@@ -83,7 +83,7 @@ const requestListener = (req, res) => {
         const title = JSON.parse(body).title;
         const id = req.url.split("/").pop();
         const index = todos.findIndex(element => element.id == id);
-        if(title !== undefined && id !== -1) {
+        if(typeof title === "string" && title.trim() !== "" && index !== -1) {
           todos[index].title = title;
           res.writeHead(200, headers);
           res.write(
@@ -104,7 +104,7 @@ const requestListener = (req, res) => {
     res.writeHead(200, headers);
     res.end();
   } else {
-    errorHandle();
+    errorHandle(res);
   }
 };
 

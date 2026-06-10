@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://127.0.0.1:3005/todos/668a12e2-9159-4521-a4a7-8db666f1ea6c
+method: DELETE
+order: 4000

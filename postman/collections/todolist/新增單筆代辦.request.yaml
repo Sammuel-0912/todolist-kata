@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://127.0.0.1:3005/todos
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"今天天氣真好\"\r
+
+    }\r\n"
+auth:
+  type: noauth
+order: 2000
